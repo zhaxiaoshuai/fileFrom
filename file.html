@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>商户费率及证照</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+    <link rel="stylesheet" href="./layui/css/style.css">
+    <style>
+        @media only screen and (max-width: 500px) {
+            .layui-input-block {
+                margin-left: 122px;
+            }
+            .layui-form-select dl{
+                margin-left: 7px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form_all">
+        <p class="information">商户费率及证照</p>
+
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">单行选择框</label>
+                <div class="layui-input-block">
+                    <select name="interest" lay-filter="interest" lay-verify="required">
+                        <option value=""></option>
+                        <option value="3.8">3.8‰</option>
+                        <option value="3.9">3.9‰</option>
+                        <option value="4">4‰</option>
+                        <option value="4.1">4.1‰</option>
+                        <option value="4.2">4.2‰</option>
+                        <option value="4.3">4.3‰</option>
+                        <option value="4.4">4.4‰</option>
+                        <option value="4.5">4.5‰</option>
+                        <option value="4.6">4.6‰</option>
+                        <option value="4.7">4.7‰</option>
+                        <option value="4.8">4.8‰</option>
+                        <option value="4.9">4.9‰</option>
+                        <option value="5">5‰</option>
+                        <option value="5.1">5.1‰</option>
+                        <option value="5.2">5.2‰</option>
+                        <option value="5.3">5.3‰</option>
+                        <option value="5.4">5.4‰</option>
+                        <option value="5.5">5.5‰</option>
+                        <option value="5.6">5.6‰</option>
+                        <option value="5.7">5.7‰</option>
+                        <option value="5.8">5.8‰</option>
+                        <option value="5.9">5.9‰</option>
+                        <option value="6">6‰</option>
+                        <option value="6.1">6.1‰</option>
+                        <option value="6.2">6.2‰</option>
+                        <option value="6.3">6.3‰</option>
+                        <option value="6.4">6.4‰</option>
+                        <option value="6.5">6.5‰</option>
+                        <option value="7">7‰</option>
+                        <option value="7.5">7.5‰</option>
+                        <option value="8">8‰</option>
+                        <option value="9">9‰</option>
+                        <option value="10">10‰</option>
+                        <option value="20">20‰</option>
+                        <option value="30">30‰</option>
+                        <option value="40">40‰</option>
+                        <option value="50">50‰</option>
+                        <option value="60">60‰</option>
+                        <option value="70">70‰</option>
+                        <option value="80">80‰</option>
+                        <option value="90">90‰</option>
+                        <option value="100">100‰</option>
+                        <option value="150">150‰</option>
+                        <option value="200">200‰</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-upload">
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img img" id="licenseUrl">
+                    <p id="licenseUrlText" class="demoText">营业执照</p>
+                    <button type="button" class="layui-btn layui-btn-normal" id="licenseUrlUpLoad">上传图片</button>
+                </div>
+            </div>
+            <div class="layui-upload">
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img img" id="idcardFrontUrl">
+                    <p id="idcardFrontUrlText" class="demoText">身份证正面</p>
+                    <button type="button" class="layui-btn layui-btn-normal" id="idcardFrontUrlUpLoad">上传图片</button>
+                </div>
+            </div>
+            <div class="layui-upload">
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img img" id="idcardReverseUrl">
+                    <p id="idcardReverseUrlText" class="demoText">身份证反面</p>
+                    <button type="button" class="layui-btn layui-btn-normal" id="idcardReverseUrlUpLoad">上传图片</button>
+                </div>
+            </div>
+            <div class="layui-upload">
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img img" id="outerHeadUrl">
+                    <p id="outerHeadUrlText" class="demoText">外部门头照</p>
+                    <button type="button" class="layui-btn layui-btn-normal" id="outerHeadUrlUpload">上传图片</button>
+                </div>
+            </div>
+            <div class="layui-upload">
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img img" id="insideEnvironmentUrl">
+                    <p id="insideEnvironmentUrlText" class="demoText">内部环境照</p>
+                    <button type="button" class="layui-btn layui-btn-normal"
+                        id="insideEnvironmentUrlUpload">上传图片</button>
+                </div>
+            </div>
+
+            <div class="layui-upload">
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img img" id="openLicenceUrl">
+                    <p id="openLicenceUrlText" class="demoText">开户许可证照片</p>
+                    <button type="button" class="layui-btn layui-btn-normal" id="openLicenceUrlUpload">上传图片</button>
+                </div>
+            </div>
+
+            <div class="layui-upload">
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img img" id="codeUrl">
+                    <p id="codeUrlText" class="demoText">组织机构代码照片</p>
+                    <button type="button" class="layui-btn layui-btn-normal" id="codeUrlUpload">上传图片</button>
+                </div>
+            </div>
+
+            <div class="layui-upload">
+                <div class="layui-upload-list">
+                    <img class="layui-upload-img img" id="taxRegUrl">
+                    <p id="taxRegUrlText" class="demoText">税务登记照片</p>
+                    <button type="button" class="layui-btn layui-btn-normal" id="taxRegUrlUpload">上传图片</button>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-left: 0; text-align: center;">
+                    <button type="submit" class="layui-btn" lay-submit="" id="goOnBtn"
+                        style="background-color: #eee; color: #000;" onClick="location.href='settlement.html'">
+                        上一步
+                    </button>
+                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="subBtn">提交</button>
+                    <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./layui/layui.js"></script>
+    <script src="./js/city-picker.js"></script>
+
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use(['upload', 'form'], function () {
+            var $ = layui.jquery,
+                upload = layui.upload,
+                form = layui.form;
+
+            /*
+                营业执照上传
+                licenseUrl img的url
+                licenseUrlText p标签
+                licenseUrlUpLoad button按钮
+            */
+
+            var uploadInst = upload.render({
+                elem: '#licenseUrlUpLoad',
+                url: 'http://192.168.1.148:20090/img/white/upload' //改成您自己的上传接口
+
+                    ,
+                // 限制大小为1M
+                size: 1024,
+                before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#licenseUrl').attr('src', result); //图片链接（base64）
+                    });
+                },
+                done: function (res) {
+                    //如果上传失败
+                    if (res.code > 0) {
+                        return layer.msg('上传失败');
+                    }
+                    // console.log(res)
+                    const result = res.data.path
+                    localStorage.setItem("licenseUrl", result);
+                    //上传成功
+                    layer.msg(res.msg);
+
+                },
+                error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#licenseUrlText');
+                    demoText.html(
+                        '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+                    );
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                }
+            });
+
+            /*
+                身份证正面上传
+                idcardFrontUrl
+                idcardFrontUrlText
+                idcardFrontUrlUpLoad
+             */
+            var uploadInst = upload.render({
+                elem: '#idcardFrontUrlUpLoad',
+
+                url: 'http://192.168.1.148:20090/img/white/upload' //改成您自己的上传接口
+                    ,
+                // 限制大小为1M
+                size: 1024,
+                before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#idcardFrontUrl').attr('src', result); //图片链接（base64）
+                    });
+                },
+                done: function (res) {
+                    //如果上传失败
+                    if (res.code != 0) {
+                        return layer.msg('上传失败');
+                    }
+                    console.log(res)
+                    const result = res.data.path
+                    localStorage.setItem("idcardFrontUrl", result);
+
+
+                    //上传成功
+                    layer.msg(res.msg);
+
+                },
+                error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#idcardFrontUrlText');
+                    demoText.html(
+                        '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+                    );
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                },
+            });
+
+            /*
+                身份证反面上传
+                idcardReverseUrl
+                idcardReverseUrlText
+                idcardReverseUrlUpLoad
+            */
+
+            var uploadInst = upload.render({
+                elem: '#idcardReverseUrlUpLoad',
+
+                url: 'http://192.168.1.148:20090/img/white/upload' //改成您自己的上传接口
+                    ,
+                // 限制大小为1M
+                size: 1024,
+                before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#idcardReverseUrl').attr('src', result); //图片链接（base64）
+                    });
+                },
+                done: function (res) {
+                    //如果上传失败
+                    if (res.code != 0) {
+                        return layer.msg('上传失败');
+                    }
+                    console.log(res)
+                    const result = res.data.path
+                    localStorage.setItem("idcardReverseUrl", result);
+
+
+                    //上传成功
+                    layer.msg(res.msg);
+
+                },
+                error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#idcardReverseUrlText');
+                    demoText.html(
+                        '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+                    );
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                },
+            });
+
+            /*
+                外部门头照
+                outerHeadUrl
+                outerHeadUrlText
+                outerHeadUrlUpload
+            */
+
+            var uploadInst = upload.render({
+                elem: '#outerHeadUrlUpload',
+
+                url: 'http://192.168.1.148:20090/img/white/upload' //改成您自己的上传接口
+                    ,
+                // 限制大小为1M
+                size: 1024,
+                before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#outerHeadUrl').attr('src', result); //图片链接（base64）
+                    });
+                },
+                done: function (res) {
+                    //如果上传失败
+                    if (res.code != 0) {
+                        return layer.msg('上传失败');
+                    }
+                    console.log(res)
+                    const result = res.data.path
+                    localStorage.setItem("outerHeadUrl", result);
+
+
+                    //上传成功
+                    layer.msg(res.msg);
+
+                },
+                error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#outerHeadUrlText');
+                    demoText.html(
+                        '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+                    );
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                },
+            });
+
+            /*
+                内部环境照
+                insideEnvironmentUrl
+                insideEnvironmentUrlText
+                insideEnvironmentUrlUpload
+            */
+
+            var uploadInst = upload.render({
+                elem: '#insideEnvironmentUrlUpload',
+
+                url: 'http://192.168.1.148:20090/img/white/upload' //改成您自己的上传接口
+                    ,
+                // 限制大小为1M
+                size: 1024,
+                before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#insideEnvironmentUrl').attr('src', result); //图片链接（base64）
+                    });
+                },
+                done: function (res) {
+                    //如果上传失败
+                    if (res.code != 0) {
+                        return layer.msg('上传失败');
+                    }
+                    console.log(res)
+                    const result = res.data.path
+                    localStorage.setItem("insideEnvironmentUrl", result);
+
+
+                    //上传成功
+                    layer.msg(res.msg);
+
+                },
+                error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#insideEnvironmentUrlText');
+                    demoText.html(
+                        '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+                    );
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                },
+            });
+
+            /*
+                开源许可证
+                openLicenceUrl
+                openLicenceUrlText
+                openLicenceUrlUpload
+            */
+
+            var uploadInst = upload.render({
+                elem: '#openLicenceUrlUpload',
+
+                url: 'http://192.168.1.148:20090/img/white/upload' //改成您自己的上传接口
+                    ,
+                // 限制大小为1M
+                size: 1024,
+                before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#openLicenceUrl').attr('src', result); //图片链接（base64）
+                    });
+                },
+                done: function (res) {
+                    //如果上传失败
+                    if (res.code != 0) {
+                        return layer.msg('上传失败');
+                    }
+                    console.log(res)
+                    const result = res.data.path
+                    localStorage.setItem("openLicenceUrl", result);
+
+
+                    //上传成功
+                    layer.msg(res.msg);
+
+                },
+                error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#openLicenceUrlText');
+                    demoText.html(
+                        '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+                    );
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                },
+            });
+
+            /*
+                组织机构代码照片
+                codeUrl
+                codeUrlText
+                codeUrlUpload
+            */
+            var uploadInst = upload.render({
+                elem: '#codeUrlUpload',
+                url: 'http://192.168.1.148:20090/img/white/upload' //改成您自己的上传接口
+                    ,
+                // 限制大小为1M
+                size: 1024,
+                before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#codeUrl').attr('src', result); //图片链接（base64）
+                    });
+                },
+                done: function (res) {
+                    //如果上传失败
+                    if (res.code != 0) {
+                        return layer.msg('上传失败');
+                    }
+                    console.log(res)
+                    const result = res.data.path
+                    localStorage.setItem("codeUrl", result);
+
+
+                    //上传成功
+                    layer.msg(res.msg);
+
+                },
+                error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#codeUrlText');
+                    demoText.html(
+                        '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+                    );
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                },
+            });
+
+            /*
+                税务登记照片
+                taxRegUrl
+                taxRegUrlText
+                taxRegUrlUpload
+            */
+
+            var uploadInst = upload.render({
+                elem: '#taxRegUrlUpload',
+                url: 'http://192.168.1.148:20090/img/white/upload' //改成您自己的上传接口
+                    ,
+                // 限制大小为1M
+                size: 1024,
+                before: function (obj) {
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function (index, file, result) {
+                        $('#taxRegUrl').attr('src', result); //图片链接（base64）
+                    });
+                },
+                done: function (res) {
+                    //如果上传失败
+                    if (res.code != 0) {
+                        return layer.msg('上传失败');
+                    }
+                    console.log(res)
+                    const result = res.data.path
+                    localStorage.setItem("taxRegUrl", result);
+                    //上传成功
+                    layer.msg(res.msg);
+                },
+                error: function () {
+                    //演示失败状态，并实现重传
+                    var demoText = $('#taxRegUrlText');
+                    demoText.html(
+                        '<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>'
+                    );
+                    demoText.find('.demo-reload').on('click', function () {
+                        uploadInst.upload();
+                    });
+                },
+            });
+
+
+            // 打开此页面后先查询是否填写了第一页的表单数据  如果没有填写 返回到第一页
+            const merchantNameDoExistence = localStorage.getItem('merchantName')
+            if (merchantNameDoExistence === null) {
+                window.location.href = 'information.html'
+            }
+            //监听提交
+            form.on('submit(subBtn)', function (data) {
+                var userInfo = data.field;
+                console.log(userInfo)
+                localStorage.setItem("serviceCharge", userInfo.interest);
+
+                // 获取本地所有的接口数据
+                let merchantName = localStorage.getItem('merchantName')
+                let merchantSName = localStorage.getItem('merchantSName')
+                let regName = localStorage.getItem('regName')
+                let merchantLinkman = localStorage.getItem('merchantLinkman')
+                let principalPhone = localStorage.getItem('principalPhone')
+                let principalEmil = localStorage.getItem('principalEmil')
+                let tmtOne = localStorage.getItem('tmtOne')
+                let tmtTwo = localStorage.getItem('tmtTwo')
+                let tmtThree = localStorage.getItem('tmtThree')
+                let servicePhone = localStorage.getItem('servicePhone')
+                let province = localStorage.getItem('province')
+                let city = localStorage.getItem('city')
+                let district = localStorage.getItem('district')
+                let customerAddress = localStorage.getItem('customerAddress')
+                let merchantType = localStorage.getItem('merchantType')
+                let blNumber = localStorage.getItem('blNumber')
+                let blExpiryDate = localStorage.getItem('blExpiryDate')
+                let accountType = localStorage.getItem('accountType')
+                let documentsType = localStorage.getItem('documentsType')
+                let jsrNumber = localStorage.getItem('jsrNumber')
+                let jsrNumberExpiry = localStorage.getItem('jsrNumberExpiry')
+                let jszhAcccountName = localStorage.getItem('jszhAcccountName')
+                let jszhAcccountNumber = localStorage.getItem('jszhAcccountNumber')
+                let reservePhone = localStorage.getItem('reservePhone')
+                let openBank = localStorage.getItem('openBank')
+                let jshBranchAddress = localStorage.getItem('jshBranchAddress')
+                let jshCity = localStorage.getItem('jshCity')
+                let jshOpenBranch = localStorage.getItem('jshOpenBranch')
+                let serviceCharge = localStorage.getItem('serviceCharge')
+                let licenseUrl = localStorage.getItem('licenseUrl')
+                let idcardFrontUrl = localStorage.getItem('idcardFrontUrl')
+                let idcardReverseUrl = localStorage.getItem('idcardReverseUrl')
+                let outerHeadUrl = localStorage.getItem('outerHeadUrl')
+                let insideEnvironmentUrl = localStorage.getItem('insideEnvironmentUrl')
+                let openLicenceUrl = localStorage.getItem('openLicenceUrl')
+                let codeUrl = localStorage.getItem('codeUrl')
+                let taxRegUrl = localStorage.getItem('taxRegUrl')
+
+                /*
+                    一共37项
+                    post到接口中的数据对象
+                */
+
+                var localItem = {
+                    merchantName,
+                    merchantSName,
+                    regName,
+                    merchantLinkman,
+                    principalPhone,
+                    principalEmil,
+                    tmtOne,
+                    tmtTwo,
+                    tmtThree,
+                    servicePhone,
+                    province,
+                    city,
+                    district,
+                    customerAddress,
+                    merchantType,
+                    blNumber,
+                    blExpiryDate,
+                    accountType,
+                    documentsType,
+                    jsrNumber,
+                    jsrNumberExpiry,
+                    jszhAcccountName,
+                    jszhAcccountNumber,
+                    reservePhone,
+                    openBank,
+                    jshBranchAddress,
+                    jshCity,
+                    jshOpenBranch,
+                    serviceCharge,
+                    licenseUrl,
+                    idcardFrontUrl,
+                    idcardReverseUrl,
+                    outerHeadUrl,
+                    insideEnvironmentUrl,
+                    openLicenceUrl,
+                    codeUrl,
+                    taxRegUrl
+                }
+                // console.log(localItem.principalPhone)
+                // console.log(JSON.stringify(localItem))
+                /*
+                    author : zhaxiaoze
+
+                    * text 形参是传递到 layer.msg方法中的 也就是提示用户信息
+
+                    * locationHref 形参是传递 window.location.href 可以为空 一秒之后跳转到对应页面填写
+
+                    * 2020年2月21日10:58:13
+
+                */
+
+                function layTextLocalHref(text, locationHref) {
+                    layer.msg(text)
+                    setTimeout(() => {
+                        if (!locationHref) {
+                            return
+                        } else {
+                            window.location.href = locationHref
+                        }
+                    }, 1000)
+                }
+                // 后续可能会修改
+                let isNull = null
+
+                /*
+                    一共 37 项字段 全部为必填项
+
+                    其中在第二个页面中的 { merchantType:商户类型,accountType:结算商户类型}是不可选择的只能选择默认项
+
+                    默认项为:  merchantType:企业   accountType:对公账户
+                */
+                if (merchantName === isNull) {
+                    layTextLocalHref('请填写商户名称', 'information.html')
+                } else if (merchantSName === isNull) {
+                    layTextLocalHref('请填写商户简称', 'information.html')
+                } else if (regName === isNull) {
+                    layTextLocalHref('请填写注册名称', 'information.html')
+                } else if (merchantLinkman === isNull) {
+                    layTextLocalHref('请填写商户联系人', 'information.html')
+                } else if (principalPhone === isNull) {
+                    layTextLocalHref('请填写负责人电话', 'information.html')
+                } else if (principalEmil === isNull) {
+                    layTextLocalHref('请填写负责人邮箱', 'information.html')
+                } else if (tmtOne === isNull) {
+                    layTextLocalHref('请填写一级行业', 'information.html')
+                } else if (tmtTwo === isNull) {
+                    layTextLocalHref('请填写二级行业', 'information.html')
+                } else if (tmtThree === isNull) {
+                    layTextLocalHref('请填写三级行业', 'information.html')
+                } else if (servicePhone === isNull) {
+                    layTextLocalHref('请填写服务电话', 'information.html')
+                } else if (province === isNull) {
+                    layTextLocalHref('请填写所在省', 'information.html')
+                } else if (city === isNull) {
+                    layTextLocalHref('请填写所在市', 'information.html')
+                } else if (district === isNull) {
+                    layTextLocalHref('请填写所在区', 'information.html')
+                } else if (customerAddress === isNull) {
+                    layTextLocalHref('请填写详细地址', 'information.html')
+                } else if (blNumber === isNull) {
+                    layTextLocalHref('请填写营业执照号', 'settlement.html')
+                } else if (blExpiryDate === isNull) {
+                    layTextLocalHref('请填写营业执照有效期', 'settlement.html')
+                } else if (documentsType === isNull) {
+                    layTextLocalHref('请填写入网证件类型', 'settlement.html')
+                } else if (jsrNumber === isNull) {
+                    layTextLocalHref('请填写结算人证件号码', 'settlement.html')
+                } else if (jsrNumberExpiry === isNull) {
+                    layTextLocalHref('请填写结算人身份证有效期', 'settlement.html')
+                } else if (jszhAcccountName === isNull) {
+                    layTextLocalHref('请填写结算人账户开户名', 'settlement.html')
+                } else if (jszhAcccountNumber === isNull) {
+                    layTextLocalHref('请填写结算人账户开户号', 'settlement.html')
+                } else if (reservePhone === isNull) {
+                    layTextLocalHref('请填写银行预留手机号', 'settlement.html')
+                } else if (openBank === isNull) {
+                    layTextLocalHref('请填写开户行', 'settlement.html')
+                } else if (jshBranchAddress === isNull) {
+                    layTextLocalHref('请填写结算户支行地址', 'settlement.html')
+                } else if (jshCity === isNull) {
+                    layTextLocalHref('请填写结算支行所在市', 'settlement.html')
+                } else if (jshOpenBranch === isNull) {
+                    layTextLocalHref('请填写结算开户支行', 'settlement.html')
+                } else if (licenseUrl === isNull) {
+                    layTextLocalHref('请上传营业执照')
+                } else if (idcardFrontUrl === isNull) {
+                    layTextLocalHref('请上传身份证正面');
+                } else if (idcardReverseUrl === isNull) {
+                    layTextLocalHref('请上传身份证反面');
+                } else if (outerHeadUrl === isNull) {
+                    layTextLocalHref('请上传外部门头照');
+                } else if (insideEnvironmentUrl === isNull) {
+                    layTextLocalHref('请上传内部环境照');
+                } else if (openLicenceUrl === isNull) {
+                    layTextLocalHref('请上传开源许可证');
+                } else if (codeUrl === isNull) {
+                    layTextLocalHref('组织机构代码照片');
+                } else if (taxRegUrl === isNull) {
+                    layTextLocalHref('税务登记照片');
+                } else {
+                    // ajax请求须携带的数据
+                    var data = JSON.stringify(localItem)
+                    // 发送ajax请求
+                    $.ajax({
+                        // 请求头
+                        contentType: 'application/json;charset=UTF-8',
+                        // 请求路径
+                        url: 'http://192.168.1.148:20070/merchant/white/insertMerchantInfo',
+                        // 请求方式
+                        method: 'post',
+                        // 请求体
+                        data: data,
+                        // 请求格式
+                        dataType: 'JSON',
+                        // 成功之后的回调函数
+                        success: function (data) {
+                            if (data) {
+                                layer.msg("提交成功！")
+                                // console.log(data)
+                                setTimeout(() => {
+                                    /*
+                                        上传成功后 清除本地缓存 防止同一个浏览器为多个用户提交数据 接口拿到的可能不是最新的数据
+                                    */
+                                    //  清除本地缓存
+                                    localStorage.clear()
+                                    // 跳转到公司官网
+                                    window.location.href =
+                                        'http://www.senturytire.com.cn/'
+                                }, 3000)
+                            }
+                        },
+                        // 失败的回调函数
+                        error: function (e) {
+                            layer.alert("提交失败！")
+                        },
+                    });
+                }
+                return false;
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

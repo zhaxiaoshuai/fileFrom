@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>商户基本信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+
+
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+    <style>
+        .form_all {
+            width: 70%;
+            margin: 0 auto;
+            box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+
+        .information {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .layui-form-label {
+            width: 80px;
+        }
+
+        .layui-form-item-width {
+            width: 50%;
+            float: left;
+            margin-bottom: 15px;
+        }
+
+        .layui-form-select dl {
+            margin: 0;
+        }
+
+        @media only screen and (max-width: 500px) {
+            .layui-form-item-width {
+                width: 100%;
+                float: left;
+                margin-bottom: 15px;
+            }
+
+            .form_all {
+                width: 100%;
+                margin: 0 auto;
+                box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+                padding: 30px;
+                box-sizing: border-box;
+            }
+        }
+        .letter_spacing36{
+            letter-spacing: 3.6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form_all" lay-filter="example">
+        <p class="information">商户基本信息</p>
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing36">商户名称</label>
+                    <div class="layui-input-block">
+                        <input autocomplete="off" type="text" name="merchantName" lay-verify="merchantName"
+                            placeholder="商户名称" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing36">商户简称</label>
+                    <div class="layui-input-block">
+                        <input autocomplete="off" type="text" name="merchantSName" lay-verify="merchantSName"
+                            placeholder="商户简称" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing36">注册名称</label>
+                    <div class="layui-input-block">
+                        <input autocomplete="off" type="text" name="regName" lay-verify="regName" placeholder="注册名称"
+                            class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label">商户联系人</label>
+                    <div class="layui-input-block">
+                        <input autocomplete="off" type="text" name="merchantLinkman" lay-verify="merchantLinkman"
+                            placeholder="商户联系人" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item-width" style="margin-bottom: 0px;">
+                    <label class="layui-form-label">负责人电话</label>
+                    <div class="layui-input-block">
+                        <input autocomplete="off" type="tel" name="principalPhone" lay-verify="principalPhone"
+                            placeholder="负责人电话" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item-width" style="margin-bottom: 0px;">
+                    <label class="layui-form-label">负责人邮箱</label>
+                    <div class="layui-input-block">
+                        <input autocomplete="off" type="email" name="principalEmil" lay-verify="principalEmil"
+                            placeholder="负责人邮箱" class="layui-input">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label letter_spacing36">所属行业</label>
+                <div class="layui-input-inline">
+                    <select lay-verify="required" name="tmtOne">
+                        <option value="">请选择企业</option>
+                        <option value="企业">企业</option>
+                        <option value="个体工商户">个体工商户</option>
+                        <option value="事业单位">事业单位</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    <select lay-verify="required" name="tmtTwo">
+                        <option value="">细分行业</option>
+                        <option value="电商/团购">电商/团购</option>
+                        <option value="线下零售">线下零售</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    <select lay-verify="required" name="tmtThree">
+                        <option value="">三级行业</option>
+                        <option value="西湖区">线上商超</option>
+                        <option value="余杭区">团购</option>
+                        <option value="临安市">百货</option>
+                        <option value="临安市">其他综合零售</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 三级联动 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label letter_spacing36" >所在地址</label>
+                <div class="layui-input-inline">
+                    <select name="province" lay-verify="required" lay-filter="province">
+                        <option value="">选择省</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    <select name="city" lay-verify="required" lay-filter="city">
+                        <option value="">选择市</option>
+                    </select>
+                </div>
+                <div class="layui-input-inline">
+                    <select name="district" lay-verify="required" lay-filter="district">
+                        <option value="">选择区</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item-width">
+                <label class="layui-form-label letter_spacing36">详细地址</label>
+                <div class="layui-input-block">
+                    <input autocomplete="off" type="text" name="customerAddress" lay-verify="customerAddress"
+                        placeholder="商户详细地址" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item-width">
+                <label class="layui-form-label letter_spacing36">客服电话</label>
+                <div class="layui-input-block">
+                    <input autocomplete="off" type="tel" name="servicePhone" lay-verify="phone" placeholder="客服电话"
+                        class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block" style="margin-left: 0; text-align: center;">
+                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="next">下一步</button>
+                    <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./js/city-picker.js"></script>
+    <script src="./layui/layui.js"></script>
+
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        // 城市三级联动表需要依赖的数据
+        layui.config({
+            base: 'js/' //假设这是你存放拓展模块的根目录
+        }).extend({ //设定模块别名
+            common: 'common' //如果 common.js 是在根目录，也可以不用设定别名
+        });
+
+        layui.use(['form', 'layedit', 'laydate', 'common'], function () {
+            var form = layui.form,
+                layer = layui.layer,
+                layedit = layui.layedit,
+                common = layui.common,
+                laydate = layui.laydate;
+
+            // 城市三级联动表
+            common.showCity('province', 'city', 'district');
+
+            //商户名称验证规则
+            form.verify({
+                merchantName: function (value) {
+                    if (!value.length) {
+                        return '请输入商户名称';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 商户简称验证规则
+            form.verify({
+                merchantSName: function (value) {
+                    if (!value.length) {
+                        return '请输入商户简称';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 注册名称验证规则
+            form.verify({
+                regName: function (value) {
+                    if (!value.length) {
+                        return '请输入注册名称';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 商户联系人验证规则
+            form.verify({
+                merchantLinkman: function (value) {
+                    if (!value.length) {
+                        return '请输入商户联系人';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 手机号验证规则
+            form.verify({
+                principalPhone: function (value) {
+                    if (!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(value))) {
+                        return '请输入11位正确手机号';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 邮箱验证规则
+            form.verify({
+                principalEmil: function (value) {
+                    const emailrule = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+                    if (!emailrule.test(value)) {
+                        return '请输入有效邮箱';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 客户详细地址验证规则
+            form.verify({
+                customerAddress: function (value) {
+                    if (!value.length) {
+                        return '请输入详细地址';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+
+            //监听提交
+            form.on('submit(next)', function (data) {
+                // layer.alert(JSON.stringify(data.field), {
+                //     title: '最终的提交信息'
+                // })
+                // localStorage.setItem("test",data.field)
+                var userInfo = data.field,
+                    province = userInfo.province,
+                    city = userInfo.city,
+                    district = userInfo.district;
+                console.log(userInfo)
+
+                // console.log(userInfo)
+                var address = common.getCity({
+                    province,
+                    city,
+                    district
+                });
+                console.log(address)
+
+
+                /*
+                    把 information.html 中收集到的数据存储到 localStorage
+                */
+                localStorage.setItem("merchantName", userInfo.merchantName);
+                localStorage.setItem("merchantSName", userInfo.merchantSName);
+                localStorage.setItem("regName", userInfo.regName);
+                localStorage.setItem("merchantLinkman", userInfo.merchantLinkman);
+                localStorage.setItem("principalPhone", userInfo.principalPhone);
+                localStorage.setItem("principalEmil", userInfo.principalEmil);
+                localStorage.setItem("tmtOne", userInfo.tmtOne);
+                localStorage.setItem("tmtTwo", userInfo.tmtTwo);
+                localStorage.setItem("tmtThree", userInfo.tmtThree);
+                localStorage.setItem("province", address.provinceName);
+                localStorage.setItem("city", address.cityName);
+                localStorage.setItem("district", address.districtName);
+                localStorage.setItem("customerAddress", userInfo.customerAddress);
+                localStorage.setItem("servicePhone", userInfo.servicePhone);
+                // console.log(JSON.stringify(localStorage.getItem('test'))) 'http://127.0.0.1:5500/index2.html'
+                window.location.href = 'settlement.html'
+                return false;
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

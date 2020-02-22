@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>商户结算信息</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+    <link rel="stylesheet" href="./layui/css/style.css">
+    <style>
+        #test .layui-form-select dl {
+            margin: 0;
+        }
+
+        .letter_spacing107 {
+            letter-spacing: 10.7px;
+        }
+
+        .letter_spacing55 {
+            letter-spacing: 5.5px;
+        }
+
+        .letter_spacing26 {
+            letter-spacing: 2.6px;
+        }
+
+        .letter_spacing18 {
+            letter-spacing: 18px;
+        }
+
+        @media only screen and (max-width: 500px) {
+            .layui-input-block {
+                margin-left: 122px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form_all">
+        <p class="information">商户结算信息</p>
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing107">商户类型</label>
+                    <div class="layui-input-block">
+                        <select name="merchantType" lay-verify="required" disabled lay-filter="merchantType">
+                            <option value="企业" disabled selected>企业</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing55">营业执照号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="blNumber" lay-verify="blNumber" autocomplete="off"
+                            placeholder="统一社会信用代码 / 营业执照号" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing55">执照有效期</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="blExpiryDate" lay-verify="required" placeholder="选择日期"
+                            id="blExpiryDate" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing26">结算账户类型</label>
+                    <div class="layui-input-block">
+                        <select name="accountType" lay-verify="required" disabled lay-filter="accountType">
+                            <option value="对公账户" selected>对公账户</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing26">入网证件类型</label>
+                    <div class="layui-input-block">
+                        <select name="documentsType" lay-verify="required" lay-filter="documentsType">
+                            <option value=""></option>
+                            <option value="三合一营业执照">三合一营业执照</option>
+                            <option value="营业执照">营业执照</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label">结算人身份证号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="jsrNumber" lay-verify="identity" autocomplete="off"
+                            placeholder="结算人身份证号" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing26">身份证有效期</label>
+                    <div class="layui-input-block">
+                        <input type="text" lay-verify="required" name="jsrNumberExpiry" placeholder="选择日期"
+                            id="jsrNumberExpiry" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label letter_spacing18">开户行</label>
+                    <div class="layui-input-block">
+                        <select name="openBank" lay-verify="required" lay-filter="openBank">
+                            <option value=""></option>
+                            <option value="中国农业发展银行">中国农业发展银行</option>
+                            <option value="中信银行">中信银行</option>
+                            <option value="兴业银行">兴业银行</option>
+                            <option value="上海农商银行">上海农商银行</option>
+                            <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
+                            <option value="农村信用合作联社">农村信用合作联社</option>
+                            <option value="徽商银行">徽商银行</option>
+                            <option value="农村合作银行">农村合作银行</option>
+                            <option value="重庆三峡银行">重庆三峡银行</option>
+                            <option value="城市信用社">城市信用社</option>
+                            <option value="渤海银行">渤海银行</option>
+                            <option value="浙商银行">浙商银行</option>
+                            <option value="农村商业银行">农村商业银行</option>
+                            <option value="恒丰银行">恒丰银行</option>
+                            <option value="城市商业银行">城市商业银行</option>
+                            <option value="上海浦东发展银行">上海浦东发展银行</option>
+                            <option value="中国建设银行">中国建设银行</option>
+                            <option value="中国银行">中国银行</option>
+                            <option value="中国农业银行">中国农业银行</option>
+                            <option value="中国工商银行">中国工商银行</option>
+                            <option value="中国进出口银行">中国进出口银行</option>
+                            <option value="交通银行">交通银行</option>
+                            <option value="华夏银行">华夏银行</option>
+                            <option value="国家开发银行">国家开发银行</option>
+                            <option value="中国光大银行">中国光大银行</option>
+                            <option value="广发银行">广发银行</option>
+                            <option value="中国民生银行">中国民生银行</option>
+                            <option value="招商银行">招商银行</option>
+                            <option value="平安银行">平安银行</option>
+                            <option value="地方银行">地方银行</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label">结算账户开户名</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="jszhAcccountName" lay-verify="jszhAcccountName" autocomplete="off"
+                            placeholder="结算账户开户名" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label">结算账户开户号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="jszhAcccountNumber" lay-verify="jszhAcccountNumber" autocomplete="off"
+                            placeholder="结算账户开户号" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item-width">
+                    <label class="layui-form-label">银行预留手机号</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="reservePhone" lay-verify="phone" autocomplete="off"
+                            placeholder="银行预留手机号" class="layui-input">
+                    </div>
+                </div>
+
+                <!-- 三级联动 -->
+                <div class="layui-form-item">
+                    <div class="layui-form-item-width" id="test">
+                        <label class="layui-form-label">结算户支行地址</label>
+                        <div class="layui-input-inline">
+                            <select name="province" lay-verify="required" lay-filter="province">
+                                <option value="">选择省</option>
+                            </select>
+                        </div>
+                        <div class="layui-input-inline">
+                            <select name="city" lay-verify="required" lay-filter="city">
+                                <option value="">选择市</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item-width">
+                        <label class="layui-form-label">结算户开户支行</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="jshOpenBranch" lay-verify="jshOpenBranch" autocomplete="off"
+                                placeholder="例如:中国邮政储蓄银行股份有限公司青岛分行" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-left: 0; text-align: center;">
+                        <!-- <button type="submit" class="layui-btn" lay-submit="" id="goOnBtn"
+                            style="background-color: #eee; color: #000;" onClick="location.href='information.html'">
+                            上一步
+                        </button> -->
+                        <a href="javascript:history.go(-1)" style="margin-right: 20px;">上一步</a>
+                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="next">下一步</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+    </div>
+
+
+
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./layui/layui.js"></script>
+    <script src="./js/city-picker.js"></script>
+
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.config({
+            base: 'js/' //假设这是你存放拓展模块的根目录
+        }).extend({ //设定模块别名
+            common: 'common' //如果 common.js 是在根目录，也可以不用设定别名
+        });
+
+        layui.use(['form', 'layedit', 'laydate', 'common'], function () {
+            var form = layui.form,
+                layer = layui.layer,
+                layedit = layui.layedit,
+                common = layui.common,
+                laydate = layui.laydate;
+
+            const merchantNameDoExistence = localStorage.getItem('merchantName')
+            if (merchantNameDoExistence === null) {
+                window.location.href = 'information.html'
+            }
+            // 日期选择
+            laydate.render({
+                elem: '#blExpiryDate'
+            });
+            laydate.render({
+                elem: '#jsrNumberExpiry'
+            });
+
+            common.showCity('province', 'city');
+
+            //监听提交
+            form.on('submit(next)', function (data) {
+                var userInfo = data.field,
+                    province = userInfo.province,
+                    city = userInfo.city,
+                    district = userInfo.district;
+                console.log(userInfo)
+
+                // console.log(userInfo)
+                // 城市二级联动表
+                var address = common.getCity({
+                    province,
+                    city,
+                });
+                console.log(address)
+                // 把这个页面手机到的数据存储到localStorage中
+                localStorage.setItem("merchantType", userInfo.merchantType);
+                localStorage.setItem("blNumber", userInfo.blNumber);
+                localStorage.setItem("blExpiryDate", userInfo.blExpiryDate);
+                localStorage.setItem("accountType", userInfo.accountType);
+                localStorage.setItem("documentsType", userInfo.documentsType);
+                localStorage.setItem("jsrNumber", userInfo.jsrNumber);
+                localStorage.setItem("jsrNumberExpiry", userInfo.jsrNumberExpiry);
+                localStorage.setItem("openBank", userInfo.openBank);
+                localStorage.setItem("jszhAcccountName", userInfo.jszhAcccountName);
+                localStorage.setItem("jszhAcccountNumber", userInfo.jszhAcccountNumber);
+                localStorage.setItem("reservePhone", userInfo.reservePhone);
+                localStorage.setItem("jshBranchAddress", address.provinceName);
+                localStorage.setItem("jshCity", address.cityName);
+                localStorage.setItem("jshOpenBranch", userInfo.jshOpenBranch);
+                // 跳转到下一个页面
+                window.location.href = 'file.html'
+                return false;
+            });
+
+            //营业执照号验证规则
+            form.verify({
+                blNumber: function (value) {
+                    if (!value) {
+                        return '请填写 统一社会信用代码 / 营业执照号';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            //结算人账户开户名
+            form.verify({
+                jszhAcccountName: function (value) {
+
+                    if (!value) {
+                        return '请输入结算账户开户名';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 结算人账户开户号
+            form.verify({
+                jszhAcccountNumber: function (value) {
+
+                    if (!value) {
+                        return '请输入结算账户开户号';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 预留手机号
+            form.verify({
+                reservePhone: function (value) {
+
+                    if (!value) {
+                        return '请输入银行预留手机号';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            // 结算户开户支行
+            form.verify({
+                jshOpenBranch: function (value) {
+
+                    if (!value) {
+                        return '请输入结算开户行';
+                    }
+                },
+                content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
